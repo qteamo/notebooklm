@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* Base theme tokens */
+@theme {
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+  --color-brand-950: #1e1b4b;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Prose overrides for dark theme */
+.prose {
+  --tw-prose-body: #e2e8f0;
+  --tw-prose-headings: #f1f5f9;
+  --tw-prose-links: #818cf8;
+  --tw-prose-bold: #f8fafc;
+  --tw-prose-counters: #94a3b8;
+  --tw-prose-bullets: #64748b;
+  --tw-prose-hr: #334155;
+  --tw-prose-quotes: #cbd5e1;
+  --tw-prose-quote-borders: #475569;
+  --tw-prose-captions: #94a3b8;
+  --tw-prose-code: #e2e8f0;
+  --tw-prose-pre-code: #e2e8f0;
+  --tw-prose-pre-bg: #1e293b;
+  --tw-prose-th-borders: #334155;
+  --tw-prose-td-borders: #1e293b;
+}
+
+/* File drop zone animation */
+@keyframes drop-pulse {
+  0%, 100% { border-color: rgb(99 102 241 / 0.3); }
+  50% { border-color: rgb(99 102 241 / 0.7); }
+}
+.drop-active {
+  animation: drop-pulse 1.5s ease-in-out infinite;
+}
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg,
+    rgb(30 41 59 / 0) 0%,
+    rgb(30 41 59 / 0.4) 50%,
+    rgb(30 41 59 / 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Mobile responsive overrides ────────────────── */
+@media (max-width: 1023px) {
+  /* Hide desktop-only elements on mobile */
+  .mobile-hide {
+    display: none !important;
+  }
+  /* Make chat area full width */
+  .kb-chat-area {
+    width: 100% !important;
+  }
+  /* Compact padding for mobile */
+  .kb-input-area {
+    padding: 0.5rem !important;
+  }
+  .kb-input-area textarea {
+    padding: 0.625rem 0.75rem !important;
+    min-height: 40px !important;
+  }
+  /* Preview modal full screen */
+  .kb-doc-preview {
+    border-radius: 0 !important;
+    max-height: 100dvh !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  /* Settings panel scrollable */
+  .kb-settings {
+    max-height: 50dvh !important;
+    overflow-y: auto !important;
+  }
+}
